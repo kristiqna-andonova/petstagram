@@ -3,13 +3,13 @@ from django.db import models
 
 from petstagram.pets.models import Pet
 from petstagram.photos.validators import valid_file_size
-
-
 class Photo(models.Model):
+
     photo = models.ImageField(
         validators=[
             valid_file_size
-        ]
+        ],
+        upload_to='images'
     )
 
     description = models.CharField(
@@ -35,5 +35,9 @@ class Photo(models.Model):
     date_of_publication = models.DateField(
         auto_now=True
     )
+
+
+
+
 
 
